@@ -1,0 +1,1042 @@
+React capstone project - Metrics webapp
+Description
+
+This React capstone project is about building a mobile web application to check a list of metrics (numeric values) that you will create making use of React and Redux.
+
+You will select an API that provides numeric data about a topic that you like and then build the webapp around it. The webapp will have several pages:
+
+    - one page with a list of items that could be filtered by some parameters; in the example below, it's a list of metrics that can be filtered by the country (imagine a search field to introduce the country name like Italy, Croatia, etc.). This page should be your homepage.
+
+    - one page for the item details; in the example, the detail page for Czech Republic cities with number of views.
+
+Home page
+
+IMPORTANT NOTE: Read all requirements before you start building your project.
+General requirements
+
+    Make sure that there are no linter errors.
+    Make sure that you used correct Gitflow.
+    Make sure that you documented your work in a professional way.
+
+HTML/CSS & JavaScript requirements
+
+    Follow our list of best practices for HTML & CSS.
+    Follow our list of best practices for JavaScript.
+
+Project requirements
+
+API First you need to choose an API to base the development of the webapp on. The API should allow you to get numeric values based on a parameter. We recommend that you choose an API that is open or needs an API key. If you choose an API that require authentication, you should implement it on your own.
+
+Some example APIs are:
+
+    Financial modeling prep API: stock data. https://site.financialmodelingprep.com/developer/docs/?  
+    
+    Weather API: http://api.openweathermap.org/data/2.5/weather?q=London,uk
+    
+    // Air pollution API: air quality data?
+// https://openweathermap.org/api/air-pollution
+
+https://date.nager.at/
+
+https://github.com/M-Media-Group/Covid-19-API
+
+https://restcountries.com/?
+
+All
+1
+https://restcountries.eu/rest/v2/all
+Search by country name. It can be the native name or partial name
+1
+https://restcountries.eu/rest/v2/name/{name}
+https://restcountries.eu/rest/v2/name/{name}
+1
+https://restcountries.eu/rest/v2/name/eesti
+https://restcountries.eu/rest/v2/name/eesti
+1
+https://restcountries.eu/rest/v2/name/united
+Search by country full name
+1
+https://restcountries.eu/rest/v2/name/{name}?fullText=true
+https://restcountries.eu/rest/v2/name/{name}?fullText=true
+1
+https://restcountries.eu/rest/v2/name/aruba?fullText=true
+Search by ISO 3166-1 2-letter or 3-letter country code
+1
+https://restcountries.eu/rest/v2/alpha/{code}
+https://restcountries.eu/rest/v2/alpha/{code}
+1
+https://restcountries.eu/rest/v2/alpha/co
+https://restcountries.eu/rest/v2/alpha/co
+1
+https://restcountries.eu/rest/v2/alpha/col
+Search by list of ISO 3166-1 2-letter or 3-letter country codes
+1
+https://restcountries.eu/rest/v2/alpha?codes={code};{code};{code}
+https://restcountries.eu/rest/v2/alpha?codes={code};{code};{code}
+1
+https://restcountries.eu/rest/v2/alpha?codes=col;no;ee
+Search by ISO 4217 currency code
+1
+https://restcountries.eu/rest/v2/currency/{currency}
+https://restcountries.eu/rest/v2/currency/{currency}
+1
+https://restcountries.eu/rest/v2/currency/cop
+Search by ISO 639-1 language code
+1
+https://restcountries.eu/rest/v2/lang/{et}
+https://restcountries.eu/rest/v2/lang/{et}
+1
+https://restcountries.eu/rest/v2/lang/es
+Search by capital city
+1
+https://restcountries.eu/rest/v2/capital/{capital}
+https://restcountries.eu/rest/v2/capital/{capital}
+1
+https://restcountries.eu/rest/v2/capital/tallinn
+Search by calling code
+1
+https://restcountries.eu/rest/v2/callingcode/{callingcode}
+https://restcountries.eu/rest/v2/callingcode/{callingcode}
+1
+https://restcountries.eu/rest/v2/callingcode/372
+Search by region: Africa, Americas, Asia, Europe, Oceania
+1
+https://restcountries.eu/rest/v2/region/{region}
+https://restcountries.eu/rest/v2/region/{region}
+1
+https://restcountries.eu/rest/v2/region/europe
+EU (European Union) EFTA (European Free Trade Association) CARICOM (Caribbean Community) PA (Pacific Alliance) AU (African Union) USAN (Union of South American Nations) EEU (Eurasian Economic Union) AL (Arab League) ASEAN (Association of Southeast Asian Nations) CAIS (Central American Integration System) CEFTA (Central European Free Trade Agreement) NAFTA (North American Free Trade Agreement) SAARC (South Asian Association for Regional Cooperation)
+1
+https://restcountries.eu/rest/v2/regionalbloc/{regionalbloc}
+https://restcountries.eu/rest/v2/regionalbloc/{regionalbloc}
+1
+https://restcountries.eu/rest/v2/regionalbloc/eu
+Response Example
+1
+https://restcountries.eu/rest/v2/alpha/col
+https://restcountries.eu/rest/v2/alpha/col
+1
+[[{
+2
+    "name": "Colombia",
+3
+    "topLevelDomain": [".co"],
+4
+    "alpha2Code": "CO",
+5
+    "alpha3Code": "COL",
+6
+    "callingCodes": ["57"],
+7
+    "capital": "Bogotá",
+8
+    "altSpellings": ["CO", "Republic of Colombia", "República de Colombia"],
+9
+    "region": "Americas",
+10
+    "subregion": "South America",
+11
+    "population": 48759958,
+12
+    "latlng": [4.0, -72.0],
+13
+    "demonym": "Colombian",
+14
+    "area": 1141748.0,
+15
+    "gini": 55.9,
+16
+    "timezones": ["UTC-05:00"],
+17
+    "borders": ["BRA", "ECU", "PAN", "PER", "VEN"],
+18
+    "nativeName": "Colombia",
+19
+    "numericCode": "170",
+20
+    "currencies": [{
+21
+        "code": "COP",
+22
+        "name": "Colombian peso",
+23
+        "symbol": "$"
+24
+    }],
+25
+    "languages": [{
+26
+        "iso639_1": "es",
+27
+        "iso639_2": "spa",
+28
+        "name": "Spanish",
+29
+        "nativeName": "Español"
+30
+    }],
+31
+    "translations": {
+32
+        "de": "Kolumbien",
+33
+        "es": "Colombia",
+34
+        "fr": "Colombie",
+35
+        "ja": "コロンビア",
+36
+        "it": "Colombia",
+37
+        "br": "Colômbia",
+38
+        "pt": "Colômbia"
+39
+    },
+40
+    "flag": "https://restcountries.eu/data/col.svg",
+41
+    "regionalBlocs": [{
+42
+        "acronym": "PA",
+43
+        "name": "Pacific Alliance",
+44
+        "otherAcronyms": [],
+45
+        "otherNames": ["Alianza del Pacífico"]
+46
+    }, {
+47
+        "acronym": "USAN",
+48
+        "name": "Union of South American Nations",
+49
+        "otherAcronyms": ["UNASUR", "UNASUL", "UZAN"],
+50
+        "otherNames": ["Unión de Naciones Suramericanas", "União de Nações Sul-Americanas", "Unie van Zuid-Amerikaanse Naties", "South American Union"]
+51
+    }]
+52
+}]
+You can filter the output of your request to include only the specified fields.
+1
+https://restcountries.eu/rest/v2/{service}?fields={field};{field};{field}
+https://restcountries.eu/rest/v2/{service}?fields={field};{field};{field}
+1
+https://restcountries.eu/rest/v2/all?fields=name;capital;currencies
+Source: https://github.com/apilayer/restcountries
+
+https://countrystatecity.in/?
+
+ES6 Module usage
+// Latest version - v3.0.0 with Tree Shaking to reduce bundle size
+import { Country, State, City }  from 'country-state-city';
+console.log(Country.getAllCountries())
+console.log(State.getAllStates())
+
+// Import Interfaces`
+import { I
+1
+// Latest version - v3.0.0 with Tree Shaking to reduce bundle size
+2
+import { Country, State, City }  from 'country-state-city';
+3
+console.log(Country.getAllCountries())
+4
+console.log(State.getAllStates())
+5
+​
+6
+// Import Interfaces`
+7
+import { ICountry, IState, ICity } from 'country-state-city'
+AMD Module usage
+1
+// Latest version - v3.0.0
+2
+let Country = require('country-state-city').Country;
+3
+let State = require('country-state-city').State;
+4
+​
+5
+console.log(Country.getAllCountries())
+6
+console.log(State.getAllStates())
+ES6 Module usage
+1
+import csc from 'country-state-city';
+AMD Module usage
+1
+let csc = require('country-state-city').default;
+type: json | ICountry
+1
+{
+2
+    "isoCode": "IN",
+3
+    "name": "India",
+4
+    "phonecode": "91",
+5
+    "flag": "🇮🇳",
+6
+    "currency": "INR",
+7
+    "latitude": "20.00000000",
+8
+    "longitude": "77.00000000",
+9
+    "timezones": [
+10
+        {
+11
+            "zoneName": "Asia\/Kolkata",
+12
+            "gmtOffset": 19800,
+13
+            "gmtOffsetName": "UTC+05:30",
+14
+            "abbreviation": "IST",
+15
+            "tzName": "Indian Standard Time"
+16
+        }
+17
+    ]
+18
+}
+type: json | ICountry
+1
+{
+2
+    "name": "Telangana",
+3
+    "isoCode": "TG",
+4
+    "countryCode": "IN",
+5
+    "latitude": "18.11243720",
+6
+    "longitude": "79.01929970"
+7
+}
+type: array of json | IState
+1
+[
+2
+    {
+3
+        "name": "Delhi",
+4
+        "isoCode": "DL",
+5
+        "countryCode": "IN",
+6
+        "latitude": "28.70405920",
+7
+        "longitude": "77.10249020"
+8
+    }
+9
+]
+type: array of json | ICity
+1
+[
+2
+    {
+3
+        "name": "New Delhi",
+4
+        "countryCode": "IN",
+5
+        "stateCode": "DL",
+6
+        "latitude": "28.63576000",
+7
+        "longitude": "77.22445000"
+8
+    }
+9
+]
+type: array of json | ICity
+1
+[
+2
+    {
+3
+        "name": "New Delhi",
+4
+        "countryCode": "IN",
+5
+        "stateCode": "DL",
+6
+        "latitude": "28.63576000",
+7
+        "longitude": "77.22445000"
+8
+    }
+9
+]
+type: array of json | ICountry
+1
+[
+2
+    {
+3
+        "isoCode": "IN",
+4
+        "name": "India",
+5
+        "phonecode": "91",
+6
+        "flag": "🇮🇳",
+7
+        "currency": "INR",
+8
+        "latitude": "20.00000000",
+9
+        "longitude": "77.00000000",
+10
+        "timezones": [
+11
+            {
+12
+                "zoneName": "Asia\/Kolkata",
+13
+                "gmtOffset": 19800,
+14
+                "gmtOffsetName": "UTC+05:30",
+15
+                "abbreviation": "IST",
+16
+                "tzName": "Indian Standard Time"
+17
+            }
+18
+        ]
+19
+    }
+20
+]
+type: array of json | IState
+1
+[
+2
+    {
+3
+        "name": "Delhi",
+4
+        "isoCode": "DL",
+5
+        "countryCode": "IN",
+6
+        "latitude": "28.70405920",
+7
+        "longitude": "77.10249020"
+8
+​
+9
+    }
+10
+]
+type: array of json | ICity
+1
+[
+2
+    {
+3
+        "name": "Delhi",
+4
+        "isoCode": "DL",
+5
+        "countryCode": "IN",
+6
+        "latitude": "28.70405920",
+7
+        "longitude": "77.10249020"
+8
+    }
+9
+]
+Source: https://github.com/harpreetkhalsagtbit/country-state-city
+
+
+Design
+
+    You should follow these design guidelines, including:
+        Colors (select one main color for your website).
+        Typography: font face, size and weight.
+        Layout: composition and space between elements.
+
+Original design idea by Nelson Sakwa on Behance.
+
+The Creative Commons license of the design requires that you give appropriate credit to the author. Therefore, you must do it in the README of your project.
+
+Interactions
+
+    Home page
+        When the page loads, the webapp shows the list of categories that could be filtered out by some parameter, for example by the category name.
+        Along with the category name, you will display some numeric values per category that come from the API.
+        When the user clicks (or taps) on a category item, the application navigates to the details page.
+
+    Details page
+        In the details page, the webapp retrieves data from the API to show detailed data in the category.
+        When the user clicks on the "Back" button (<), the user navigates to the home page.
+
+Testing requirements
+
+    Create unit tests for pure functions in your Redux code.
+    Create integration tests for your application using the React Testing Library.
+        You may need to mock the access to the API, so that your tests don't send actual requests.
+        You may need to mock the connection to the Redux Store.
+
+Technical requirements
+
+    The project is a single-page application (SPA) built with React and Redux.
+    The data retrieved from the API should be stored in the Redux store.
+    You should filter the data that you retrieve from the API using a Filter stateless component.
+    Every page (the main page and the pages for each item) should have a unique route within the SPA.
+    The project should be deployed and accessible online using Render, Netlify or GitHub Pages.
+        Add a link to the online version of your app to your README file.
+
+Project documentation
+
+Once you have finished the development of the project, you should record a video presenting the features of the project you built. It is a video with a maximum length of 5 minutes. The content of the video should include:
+
+    a description of the project.
+    a demo of the project features.
+    you should also highlight some interesting piece of code or something you built that you are very proud of.
+
+
+Challenge breakdown
+
+Here is a suggestion of what you can do every day (just a suggestion, not mandatory):
+Day 1
+
+    Select the API you are going to use.
+    Build files structure for your React app.
+    Prepare routes and navigation in your app.
+
+Day 2
+
+    Make sure that a user can display a list of items and filter them. Data should come from the API.
+    Create the tests for the application.
+
+Day 3
+
+    Style your components to match the design provided.
+    Deploy the project and test for final details.
+    Record a video for your project.
+    Create a good README and PR description.
+
+Work and submission mode
+
+    You should submit this activity individually.
+
+Code review
+
+You will get a code review when you build the complete project, not after each milestone. Once you have it ready, follow these steps to request a code review of your project.
+Submit your project
+
+After the final approval from a code reviewer, you need to submit your project. Read this FAQ for a reminder on how to submit your project.
+
+Now go to your Student Dashboard and submit your project.
+
+# Additional requirements
+
+These are all optional, but if you're interested in exploring this topic further, feel free to implement them. Any exploration here should be done outside program time.
+
+If you decide to implement these requirements you should do it in a separate pull request. As always, remember to clearly document your decision in GitHub comments.
+
+    You could implement some UX improvements: include transitions and/or animations, etc.
+    You can implement additional pages in the website (each with a route in the SPA): about me, references, etc.
+    Make sure that you have a decent desktop design for the webapp.
+
+//
+As OpenWeatherMap.org returns data mostly in the form of nested dictionaries, openweathermapy gives a simple API to access items in a comfortable way:
+1
+# classic access
+2
+item = data["main"]["temp"]
+3
+​
+4
+# openweathermapy access
+5
+item = data("main.temp")
+
+# access multiple items at once
+8
+>>> items = data("main.temp", "wind.speed")
+Installation
+1
+# via pip
+2
+~$ pip install openweathermapy
+4
+# or fetch latest version from git ...
+5
+~$ git clone https://github.com/crazycapivara/openweathermapy/
+6
+~$ cd openweathermapy
+7
+~$ python setup.py install
+Usage
+1
+>>> import openweathermapy.core as owm
+All parameters defined in OpenWeatherMap's API documentation can be passed to the functions in openweathermapy as keyword arguments **params. The query string always depends on the request (API call), but unsupported parameters will (normally) not raise an error. Most common ones to be used are units, lang and (if needed) APPID. So, it may be a good idea to pass them in the form of a settings dictionary:
+1
+>>> settings = {"units": "metric", "lang": "DE"}
+2
+>>> data = owm.get_current("Kassel,DE", **settings)
+3
+# settings containing APIKEY
+5
+>>> settings = {"APPID": 1111111111, "units": "metric"}
+A view is just a list of keys to extract data from the responses. So, you can define views like summary, minimal etc. depending on your needs. This keeps everything as flexible as possible:
+1
+>>> views = {
+2
+...    "summary": ["main.temp", "main.pressure", "main.humidity"]
+3
+... }
+4
+​
+5
+>>> data = owm.get_current("London,UK", units="metric")
+6
+>>> data(*views["summary"])
+7
+(18.56, 1011, 63)
+8
+​
+9
+# return complete keys
+10
+>>> data.get_dict(views["summary"])
+11
+{'main.temp': 18.56, 'main.humidity': 63, 'main.pressure': 1011}
+12
+​
+13
+# return only last key
+14
+>>> data.get_dict(views["summary"], split_keys=True)
+15
+{'pressure': 1011, 'temp': 18.56, 'humidity': 63}
+City can be given as name, id, or geographic coordinates. If you want to stay as close as possible to the original API, you can also skip the first argument and use the parameters q, id, lat and lon or zip instead. For details see OpenWeatherMap's API documentation.
+1
+# get data by city name and country code
+2
+>>> data = owm.get_current("Kassel,DE")
+3
+    
+4
+# get data by city id and set language to german (DE)
+5
+>>> data = owm.get_current(2892518, lang="DE")
+6
+    
+7
+# get data by latitude and longitude and return temperatures in Celcius
+8
+>>> location = (51.32, 9.5)
+9
+>>> data = owm.get_current(location, units="metric")
+10
+    
+11
+# optional: skip city argument and get data by zip code
+12
+>>> data = owm.get_current(zip="34128,DE") 
+13
+​
+14
+# access single item
+15
+>>> data("main.temp")
+16
+11.06
+17
+​
+18
+# access multiple items at once
+19
+>>> keys = ["main.temp", "main.humidity", "wind.speed"]
+20
+>>> data.get_many(keys)
+21
+(11.06, 58, 6.2)
+22
+​
+23
+# alternative access
+24
+>>> data(*keys)
+25
+(11.06, 58, 6.2)
+26
+​
+27
+# get data for 'Malaga,ES', 'Kassel,DE', 'New York,US'
+28
+>>> city_ids = (2892518, 2514256, 5128581)
+29
+>>> data = owm.get_current_for_group(city_ids, units="metric", lang="DE")
+30
+>>> data_malaga = data[0]
+31
+​
+32
+# find city by name and return data for match(es)
+33
+>>> data = owm.find_city("Malaga")
+34
+​
+35
+# get data for 5 cities around geographic coordinates
+36
+>>> location = (51.32, 9.5)
+37
+>>> data = owm.find_cities_by_geo_coord(location, 5)
+38
+​
+39
+# get data from station
+40
+>>> data = owm.get_current_from_station(4926)
+41
+​
+42
+# get stations by geographic coordinates
+43
+>>> location = (51.32, 9.5)
+44
+>>> data = owm.find_stations_by_geo_coord(location)
+City can be given as shown in the examples above.
+1
+# get 3h forecast data
+2
+>>> data = owm.get_forecast_hourly("Kassel,DE", lang="DE")
+3
+​
+4
+# get daily forecast data for 7 days
+5
+>>> data = owm.get_forecast_daily("Kassel,DE", 7, units="metric")
+6
+​
+7
+# show meta data
+8
+>>> data.meta
+9
+{u'city': {u'country': u'DE', u'population': 0, u'id': 2892518,
+10
+u'coord': {u'lat': 51.316669, u'lon': 9.5}, u'name': u'Kassel'},
+11
+u'message': 0.0185, u'cod': u'200', u'cnt': 7}
+12
+​
+13
+# get coordinates and id
+14
+>>> data.meta(*["city.coord", "city.id"])
+15
+({u'lat': 51.316669, u'lon': 9.5}, 2892518)
+16
+​
+17
+# select columns
+18
+>>> selection = data.select(["dt", "temp.min", "temp.max"])
+19
+>>> for line in selection:
+20
+...    line 
+21
+...
+22
+(1437044400, 16.63, 24.99)
+23
+(1437130800, 18.21, 30.17)
+24
+(1437217200, 14.96, 26.35)
+25
+(1437303600, 15.82, 23.49)
+26
+(1437390000, 15.52, 23.95)
+27
+(1437476400, 18.77, 29.11)
+28
+(1437562800, 14.67, 27.11)
+29
+​
+30
+# convert column "dt" to datetime string
+31
+>>> from datetime import datetime as dt
+32
+>>> conv = {"dt": lambda ts: str(dt.utcfromtimestamp(ts))}
+33
+​
+34
+>>> selection = data.select(["dt", "temp.min", "temp.max"], converters=conv)
+35
+>>> for line in selection:
+36
+...    line 
+37
+...
+38
+('2015-07-16 11:00:00', 16.63, 24.99)
+39
+('2015-07-17 11:00:00', 18.21, 30.17)
+40
+('2015-07-18 11:00:00', 14.96, 26.35)
+41
+('2015-07-19 11:00:00', 15.82, 23.49)
+42
+('2015-07-20 11:00:00', 15.52, 23.95)
+43
+('2015-07-21 11:00:00', 18.77, 29.11)
+44
+('2015-07-22 11:00:00', 14.67, 27.11)
+For a complete list of parameters as start, end etc., which can be passed, please refer to OpenWeatherMap's API documention.
+1
+# get historical data for city
+2
+>>> data = owm.get_history("Kassel,DE")
+3
+​
+4
+# get historical data from station
+5
+>>> data = owm.get_history_from_station(4926)
+You can customize or extend the lib to your needs by using the wrapper function wrap_get or the decorator class GetDecorator. Both are more or less the same. As first argument the appendix to the base url needs to be given. Optionally a dictionary with parameters and a data converter can be passed.
+1
+# show base url
+2
+>>> owm.BASE_URL
+3
+'http://api.openweathermap.org/data/2.5/'
+4
+​
+5
+# base url for fetching current weather data
+6
+>>> appendix = "weather"
+7
+>>> owm.BASE_URL+appendix
+8
+'http://api.openweathermap.org/data/2.5/weather'
+9
+​
+10
+# create a function to get current weather data and return temperatures in Celsius (units="metric") 
+11
+>>> f = wrap_get("weather", dict(units="metric"))
+12
+>>> data = f("London,UK")
+13
+>>> data_de = f(zip="34128,DE", lang="DE")
+Source: https://github.com/crazycapivara/openweathermapy
+
+//////////////////
+Request Parameters:
+1
+String symbol : Company Symbol, ex. AAPL
+2
+String apikey : your ApiKey
+Response Example:
+1
+{
+2
+  "symbol" : "AAPL",
+3
+  "price" : 318.68
+4
+}
+Request Parameters:
+1
+String exchange : String, ex. nyse
+2
+String apikey : your ApiKey
+Response Example:
+1
+[{
+2
+  "symbol" : "AAPL",
+3
+  "name" : "Apple Inc.",
+4
+  "price" : 156.81000000,
+5
+  "changesPercentage" : -3.16784300,
+6
+  "change" : -5.13000500,
+7
+  "dayLow" : 156.36000000,
+8
+  "dayHigh" : 160.44800000,
+9
+  "yearHigh" : 165.70000000,
+10
+  "yearLow" : 116.21000000,
+11
+  "marketCap" : 2572687507456.00000000,
+12
+  "priceAvg50" : 148.28620000,
+13
+  "priceAvg200" : 138.18630000,
+14
+  "volume" : 72367719,
+15
+  "avgVolume" : 78850734,
+16
+  "exchange" : "NASDAQ",
+17
+  "open" : 159.56500000,
+18
+  "previousClose" : 161.94000000,
+19
+  "eps" : 5.61000000,
+20
+  "pe" : 27.95187000,
+21
+  "earningsAnnouncement" : "2022-01-25T10:59:00.000+0000",
+22
+  "sharesOutstanding" : 16406399512,
+23
+  "timestamp" : 1638015369
+24
+},{
+25
+  "symbol" : "FB",
+26
+  "name" : "Meta Platforms, Inc.",
+27
+  "price" : 333.12000000,
+28
+  "changesPercentage" : -2.32803700,
+29
+  "change" : -7.94000240,
+30
+  "dayLow" : 331.90200000,
+31
+  "dayHigh" : 337.75000000,
+32
+  "yearHigh" : 384.33000000,
+33
+  "yearLow" : 244.61000000,
+34
+  "marketCap" : 948745732096.00000000,
+35
+  "priceAvg50" : 335.99740000,
+36
+  "priceAvg200" : 327.78296000,
+37
+  "volume" : 12059658,
+38
+  "avgVolume" : 21449852,
+39
+  "exchange" : "NASDAQ",
+40
+  "open" : 335.79500000,
+41
+  "previousClose" : 341.06000000,
+42
+  "eps" : 13.97400000,
+43
+  "pe" : 23.83855600,
+44
+  "earningsAnnouncement" : "2022-01-25T10:59:00.000+0000",
+45
+  "sharesOutstanding" : 2848059955,
+46
+  "timestamp" : 1638015468
+47
+},{}]
+Request Parameters:
+1
+String symbol : Company Symbol, ex. AAPL
+2
+String apikey : your ApiKey
+Response Example:
+1
+{
+2
+  "symbol" : "AAPL",
+3
+  "historical" : [ {
+4
+      "date" : "2021-10-08",
+5
+      "open" : 144.03,
+6
+      "high" : 144.17,
+7
+      "low" : 142.56,
+8
+      "close" : 142.9,
+9
+      "adjClose" : 142.9,
+10
+      "volume" : 5.545036E7,
+11
+      "unadjustedVolume" : 5.545036E7,
+12
+      "change" : -1.13,
+13
+      "changePercent" : -0.785,
+14
+      "vwap" : 143.21,
+15
+      "label" : "October 08, 21",
+16
+      "changeOverTime" : -0.00785
+17
+    }, {
+18
+      "date" : "2021-10-07",
+19
+      "open" : 143.06,
+20
+      "high" : 144.215,
+21
+      "low" : 142.73,
+22
+      "close" : 143.29,
+23
+      "adjClose" : 143.29,
+24
+      "volume" : 6.1863761E7,
+25
+      "unadjustedVolume" : 6.1863761E7,
+26
+      "change" : 0.23,
+27
+      "changePercent" : 0.161,
+28
+      "vwap" : 143.41167,
+29
+      "label" : "October 07, 21",
+30
+      "changeOverTime" : 0.00161
+31
+    }, { "...": "..." }
+32
+  ]
+33
+}
+You may pass more parameters here:
+1
+to : YYYY-MM-DD, ex. 2020-08-15
+2
+from : YYYY-MM-DD, ex. 2020-08-14
+3
+timeseries : Number (return last x days), ex. 5
+Source: https://github.com/FinancialModelingPrep/stocks-api
+///////////////////
