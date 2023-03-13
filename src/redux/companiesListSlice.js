@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const GET_COMPANIES = 'GET_COMPANIES';
-const GET_COMPANIEY_DETAILS = 'GET_COMPANIEY_DETAILS';
+const GET_COMPANIES = 'companies/companies/GET_COMPANIES';
+const GET_COMPANIEY_DETAILS = 'companies/companies/GET_COMPANIEY_DETAILS';
 
 const url = 'https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=6457eff62276368e994cff34f8e55672';
 
