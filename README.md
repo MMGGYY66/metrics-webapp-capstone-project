@@ -2,7 +2,7 @@
 # React metrics webapp capstone project (Module 3)
 
 <div align="center">
-  <img src="Space-Travelers.png" alt="logo" width="200"  height="auto" />
+  <img src="metrics.png" alt="logo" width="200"  height="auto" />
   <br/>
 
   <h3><b>React metrics webapp capstone project</b></h3>
@@ -163,7 +163,7 @@ To run tests, run the following command:
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohamed-eldimardash-0023a3b5/)
 - Twitter: [twitter](https://twitter.com/MOHAMEDELDIMARd)
 - Facebook: [facebook](https://www.facebook.com/MOHAMED.ELDIMARDASH/)
-- StackOverflow: [stackoverflow](https://stackoverflow.com/users/14087/mohamed-eldimardash)
+- StackOverflow: [stackoverflow](https://stackoverflow.com/users/13605630/mohamed-gamil-eldimardash)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
