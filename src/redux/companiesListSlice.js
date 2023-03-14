@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 const GET_COMPANIES = 'companies/companies/GET_COMPANIES';
 const GET_COMPANIEY_DETAILS = 'companies/companies/GET_COMPANIEY_DETAILS';
 
-const url = 'https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=55b862a869deb41e6274437272a2c936';
+const url = 'https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=6457eff62276368e994cff34f8e55672';
 
 const initialState = { companyList: [], companyDetails: {} };
 
@@ -36,7 +36,7 @@ export const getCompanies = createAsyncThunk(
 export const getCompanyDetails = createAsyncThunk(
   GET_COMPANIEY_DETAILS,
   async (args, { dispatch }) => {
-    const response = await fetch(`https://financialmodelingprep.com/api/v3/profile/${args}?apikey=${process.env.API_KEY}`);
+    const response = await fetch(`https://financialmodelingprep.com/api/v3/profile/${args}?apikey=6457eff62276368e994cff34f8e55672`);
     const data = await response.json();
 
     dispatch({ type: GET_COMPANIEY_DETAILS, companies: data[0] });
