@@ -36,7 +36,7 @@ export const getCompanies = createAsyncThunk(
 export const getCompanyDetails = createAsyncThunk(
   GET_COMPANIEY_DETAILS,
   async (args, { dispatch }) => {
-    const response = await fetch(`https://financialmodelingprep.com/api/v3/profile/${args}?apikey=55b862a869deb41e6274437272a2c936`);
+    const response = await fetch(`https://financialmodelingprep.com/api/v3/profile/${args}?apikey=${process.env.API_KEY}`);
     const data = await response.json();
 
     dispatch({ type: GET_COMPANIEY_DETAILS, companies: data[0] });
