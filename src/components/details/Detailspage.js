@@ -25,7 +25,7 @@ const Detailspage = () => {
         <table className="table">
           <tbody>
             <tr>
-              <th scope="col">cik</th>
+              <th scope="col">cik (Company Identification Number)</th>
               <td>{companyDetails.cik}</td>
             </tr>
             <tr>
@@ -57,7 +57,7 @@ const Detailspage = () => {
               <td>{companyDetails.phone}</td>
             </tr>
             <tr>
-              <th scope="col">CEO</th>
+              <th scope="col">CEO (Chief Executive Officer)</th>
               <td>{companyDetails.ceo}</td>
             </tr>
           </tbody>

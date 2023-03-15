@@ -36,7 +36,8 @@
 
 # 📖 space travellers group-project <a name="about-project"></a>
 
- This React capstone project is about building a mobile web app to check a list of metrics that I will create making use of React and Redux. An API is used to provide numeric data about a topic and then build the webapp around it. The webapp will have two pages: one page with a list of items (homepage) and another page for the item details. 
+ This capstone project is about building a mobile web app to check a list of companies and their financial metrics created by making use of React and Redux. An API (https://financialmodelingprep.com/api/v3/nasdaq_constituent) is used to provide numeric data about companies and then build the webapp around it. The webapp will have two pages: one page with a list of items of companies (homepage) and another page for the item details (company details). 
+ Original Design Official by [Nelson Sakwa](https://www.behance.net/gallery/31579789/Ballhead-App-%28Free-PSDs%29).
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -97,7 +98,9 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Project Presentation Video <a name="live-demo"></a>
+## 🚀 Project Demonstration Video <a name="Demonstration Video"></a>
+
+- [Demo-Video-for-metrics-webapp-capstone-project](https://www.loom.com/share/db6b657b8dc44df5a21697c520cb5fe9)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -189,7 +192,7 @@ If you like this project take the time to give a star, follow us and a feedback,
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-we would like to thank Microverse for giving us the chance to improve our coding.
+I would like to thank microverse for the great resources shared. Also I would like to thanks [Nelson Sakwa](https://www.behance.net/gallery/31579789/Ballhead-App-%28Free-PSDs%29) on Behance for Original Design Official.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

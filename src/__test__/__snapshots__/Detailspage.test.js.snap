@@ -25,7 +25,7 @@ exports[`Check any changes to the component 1`] = `
           <th
             scope="col"
           >
-            cik
+            cik (Company Identification Number)
           </th>
           <td />
         </tr>
@@ -89,7 +89,7 @@ exports[`Check any changes to the component 1`] = `
           <th
             scope="col"
           >
-            CEO
+            CEO (Chief Executive Officer)
           </th>
           <td />
         </tr>
